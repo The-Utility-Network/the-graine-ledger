@@ -100,12 +100,18 @@ export default function DistilleryProcess() {
 
                             <div className="hidden md:block absolute inset-0 pointer-events-none">
                                 {bubbles.map((b, i) => (
-                                    <motion.div
+                                    <div
                                         key={`bubble-${i}`}
                                         className="absolute rounded-full bg-white/40 mix-blend-overlay"
-                                        style={{ width: b.width, height: b.height, left: b.left, top: b.top, willChange: 'transform' }}
-                                        animate={{ y: [0, -800], opacity: [0, 0.6, 0], x: [0, Math.random() * 20 - 10, 0] }}
-                                        transition={{ duration: b.duration, repeat: Infinity, ease: "linear", delay: b.delay }}
+                                        style={{ 
+                                            width: b.width, 
+                                            height: b.height, 
+                                            left: b.left, 
+                                            top: b.top, 
+                                            willChange: 'transform',
+                                            animation: `bubble-rise ${b.duration}s linear ${b.delay}s infinite`,
+                                            '--drift': `${Math.random() * 20 - 10}px` 
+                                        } as React.CSSProperties}
                                     />
                                 ))}
                             </div>
