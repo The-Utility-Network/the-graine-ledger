@@ -10,6 +10,7 @@ const navLinks = [
     { label: 'PROCESS', href: '#process' },
     { label: 'ROADMAP', href: '#roadmap' },
     { label: 'TEAM', href: '#team' },
+    { label: 'INVESTORS', href: '/investors' },
 ];
 
 const externalLinks: { label: string; href: string; internal?: boolean }[] = [

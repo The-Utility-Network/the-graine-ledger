@@ -115,12 +115,12 @@ export default function Footer() {
                         © {new Date().getFullYear()} The Utility Company LLC. All rights reserved.
                     </p>
                     <div className="flex items-center gap-6">
-                        <a href="https://theutilitycompany.co/privacy" className="text-gray-500 text-xs hover:text-white transition-colors">
+                        <Link href="/privacy" className="text-gray-500 text-xs hover:text-white transition-colors">
                             Privacy Protocols
-                        </a>
-                        <a href="https://theutilitycompany.co/terms" className="text-gray-500 text-xs hover:text-white transition-colors">
+                        </Link>
+                        <Link href="/terms" className="text-gray-500 text-xs hover:text-white transition-colors">
                             Terms of Service
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
