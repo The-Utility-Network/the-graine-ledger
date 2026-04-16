@@ -80,13 +80,13 @@ export default function DistilleryProcess() {
                             <div className="absolute inset-0 bg-[#fbbf24]" />
                             <motion.div
                                 className="absolute inset-[-20%] origin-bottom"
-                                style={{ rotate: rotateLiquid, x: displaceLiquid, scaleY: scaleLiquid }}
+                                style={{ rotate: rotateLiquid, x: displaceLiquid, scaleY: scaleLiquid, willChange: 'transform' }}
                             >
                                 {waves.map((wave, i) => (
                                     <motion.div
                                         key={i}
                                         className="absolute bottom-0 left-0 right-0 w-full"
-                                        style={{ height: `${100 - i * 12}%` }}
+                                        style={{ height: `${100 - i * 12}%`, willChange: 'transform' }}
                                         animate={{ y: [0, wave.yOffset / 4, 0] }}
                                         transition={{ duration: wave.speed, repeat: Infinity, ease: "easeInOut" }}
                                     >
@@ -98,18 +98,20 @@ export default function DistilleryProcess() {
                                 ))}
                             </motion.div>
 
-                            {bubbles.map((b, i) => (
-                                <motion.div
-                                    key={`bubble-${i}`}
-                                    className="absolute rounded-full bg-white/40 mix-blend-overlay"
-                                    style={{ width: b.width, height: b.height, left: b.left, top: b.top }}
-                                    animate={{ y: [0, -800], opacity: [0, 0.6, 0], x: [0, Math.random() * 20 - 10, 0] }}
-                                    transition={{ duration: b.duration, repeat: Infinity, ease: "linear", delay: b.delay }}
-                                />
-                            ))}
+                            <div className="hidden md:block absolute inset-0 pointer-events-none">
+                                {bubbles.map((b, i) => (
+                                    <motion.div
+                                        key={`bubble-${i}`}
+                                        className="absolute rounded-full bg-white/40 mix-blend-overlay"
+                                        style={{ width: b.width, height: b.height, left: b.left, top: b.top, willChange: 'transform' }}
+                                        animate={{ y: [0, -800], opacity: [0, 0.6, 0], x: [0, Math.random() * 20 - 10, 0] }}
+                                        transition={{ duration: b.duration, repeat: Infinity, ease: "linear", delay: b.delay }}
+                                    />
+                                ))}
+                            </div>
                         </div>
 
-                        <div className="relative z-20 w-full mix-blend-screen opacity-100 pointer-events-none">
+                        <div className="relative z-20 w-full mix-blend-screen opacity-100 pointer-events-none" style={{ willChange: 'transform' }}>
                             <Image
                                 src="/artifacts/tglprocess.png"
                                 alt="Process Diagram"

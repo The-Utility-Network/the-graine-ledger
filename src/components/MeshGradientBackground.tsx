@@ -10,6 +10,7 @@ export default function MeshGradientBackground() {
 
             {/* Glowing amber orb 1 */}
             <motion.div
+                style={{ willChange: 'transform' }}
                 animate={{
                     scale: [1, 1.25, 1],
                     x: [0, 80, -40, 0],
@@ -21,28 +22,31 @@ export default function MeshGradientBackground() {
 
             {/* Glowing copper orb 2 */}
             <motion.div
+                style={{ willChange: 'transform' }}
                 animate={{
                     scale: [1, 1.1, 1.3, 1],
                     x: [0, -70, 30, 0],
                     y: [0, 50, -80, 0],
                 }}
                 transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-[20%] right-[-15%] w-[60%] h-[60%] max-w-[900px] max-h-[900px] rounded-full bg-[#c2410c] mix-blend-screen opacity-15 blur-[150px]"
+                className="hidden md:block absolute top-[20%] right-[-15%] w-[60%] h-[60%] max-w-[900px] max-h-[900px] rounded-full bg-[#c2410c] mix-blend-screen opacity-15 blur-[150px]"
             />
 
             {/* Glowing gold orb 3 */}
             <motion.div
+                style={{ willChange: 'transform' }}
                 animate={{
                     scale: [1, 1.3, 1],
                     x: [0, 90, -50, 0],
                     y: [0, 90, -30, 0],
                 }}
                 transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-[-20%] left-[10%] w-[50%] h-[50%] max-w-[800px] max-h-[800px] rounded-full bg-[#fbbf24] mix-blend-screen opacity-[0.08] blur-[130px]"
+                className="hidden md:block absolute bottom-[-20%] left-[10%] w-[50%] h-[50%] max-w-[800px] max-h-[800px] rounded-full bg-[#fbbf24] mix-blend-screen opacity-[0.08] blur-[130px]"
             />
 
             {/* Core TGL Amber orb 4 */}
             <motion.div
+                style={{ willChange: 'transform' }}
                 animate={{
                     scale: [1, 0.9, 1.1, 1],
                     x: [0, -40, 60, 0],

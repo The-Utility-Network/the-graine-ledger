@@ -9,12 +9,15 @@ export default function Hero() {
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
+            if (window.innerWidth < 768) return;
             const x = (e.clientX - window.innerWidth / 2) / window.innerWidth;
             const y = (e.clientY - window.innerHeight / 2) / window.innerHeight;
             setOffset({ x, y });
         };
 
-        window.addEventListener('mousemove', handleMouseMove);
+        if (window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
+            window.addEventListener('mousemove', handleMouseMove);
+        }
         return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
 
@@ -23,7 +26,7 @@ export default function Hero() {
             {/* Background Image with Parallax */}
             <div
                 className="absolute inset-0 transition-transform duration-100 ease-out"
-                style={{ transform: `translate(${offset.x * 30}px, ${offset.y * 30}px) scale(1.1)` }}
+                style={{ transform: `translate(${offset.x * 30}px, ${offset.y * 30}px) scale(1.1)`, willChange: 'transform' }}
             >
                 <Image
                     src="/artifacts/tglbg.png"
